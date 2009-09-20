@@ -42,7 +42,7 @@ class FormBuilderGenerator < Rails::Generator::Base
         m.migration_template "#{migration}_migration.rb", "db/migrate", :migration_file_name => "create_#{migration}"
       end
       
-      m.insert_custom_route "map.resources :forms, :member => { :sort_fields => :post } do |forms|\n    forms.resources :submissions, :collection => { :thank_you => :get }\n  end"
+      m.insert_custom_route "map.resources :forms, :member => { :sort_fields => :post }, :has_many => :submissions"
     end
   end
 end
