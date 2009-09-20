@@ -1,0 +1,47 @@
+form-builder-generator
+============
+
+./script/generate form_builder
+
+This will create:
+app/models/form.rb
+app/models/form_field.rb
+app/models/form_value.rb
+app/models/submission.rb
+app/models/form_notifier.rb
+
+app/controllers/forms_controller.rb
+app/controllers/submissions_controller.rb
+
+app/views/forms/index.html.erb
+app/views/forms/edit.html.erb
+app/views/forms/show.html.erb
+app/views/forms/_form.html.erb
+app/views/forms/_form_field.html.erb
+
+app/views/submissions/index.html.erb
+app/views/submissions/edit.html.erb
+app/views/submissions/show.html.erb
+app/views/submissions/_submission.html.erb
+app/views/submissions/_form_value.html.erb
+
+app/views/submission_notifier/form_submission.text.html.erb
+app/views/submission_notifier/form_submission.text.plain.erb
+
+app/helpers/forms_helper.rb
+app/helpers/submissions_helper.rb
+
+db/migrate/CURRENT_DATE_create_forms.rb
+db/migrate/CURRENT_DATE_create_form_fields.rb
+db/migrate/CURRENT_DATE_create_submissions.rb
+db/migrate/CURRENT_DATE_create_form_values.rb
+
+This will add to config/routes.rb
+map.resources :forms, :member => { :sort_fields => :post } do |forms|
+  forms.resources :submissions, :collection => { :thank_you => :get }
+end
+
+
+
+
+Copyright (c) 2009 James Miller, released under the MIT license
