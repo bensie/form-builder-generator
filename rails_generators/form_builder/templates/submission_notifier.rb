@@ -1,4 +1,4 @@
-class Notifier < ActionMailer::Base
+class SubmissionNotifier < ActionMailer::Base
   
   def form_submission(submission, sent_at = Time.now)
     subject    "Form Submission: #{submission.form.name}"
